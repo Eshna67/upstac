@@ -40,7 +40,7 @@ public class TestRequestController {
             User user = userLoggedInService.getLoggedInUser();
             TestRequest result = testRequestService.createTestRequestFrom(user, testRequest);
             return result;
-        }  catch (AppException e) {
+        } catch (AppException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
 
@@ -63,7 +63,6 @@ public class TestRequestController {
 
 
     }
-
 
 
 }
