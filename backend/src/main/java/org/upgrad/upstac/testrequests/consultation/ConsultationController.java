@@ -50,6 +50,7 @@ public class ConsultationController {
     public List<TestRequest> getForConsultations() {
 
         // Implement this method
+        //Returning request status by findBy method
         return testRequestQueryService.findBy(RequestStatus.LAB_TEST_COMPLETED);
 
         //Implement this method to get the list of test requests having status as 'LAB_TEST_COMPLETED'
@@ -64,6 +65,7 @@ public class ConsultationController {
     public List<TestRequest> getForDoctor() {
 
         //Implement this method
+        //Getting logged in user(doctor) and returning test requests by findByDoctor method
         User doctor = userLoggedInService.getLoggedInUser();
         return testRequestQueryService.findByDoctor(doctor);
 
@@ -79,7 +81,7 @@ public class ConsultationController {
     @PutMapping("/assign/{id}")
     public TestRequest assignForConsultation(@PathVariable Long id) {
 
-        // Implement this method
+        //Getting logged in user(doctor) and assigning test requests by assignForConsultation method
         User doctor = userLoggedInService.getLoggedInUser();
         return testRequestUpdateService.assignForConsultation(id, doctor);
 
@@ -96,6 +98,7 @@ public class ConsultationController {
     public TestRequest updateConsultation(@PathVariable Long id, @RequestBody CreateConsultationRequest testResult) {
 
         // Implement this method
+        //Getting logged in user(doctor) and updating test requests by updateConsultation method
         User doctor = userLoggedInService.getLoggedInUser();
         return testRequestUpdateService.updateConsultation(id, testResult, doctor);
 

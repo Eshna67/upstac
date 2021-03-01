@@ -59,6 +59,7 @@ public class LabRequestController {
     @PreAuthorize("hasAnyRole('TESTER')")
     public List<TestRequest> getForTester() {
         //RequestHistory
+        //Getting logged in user and returning request history by findByTester method
         User tester = userLoggedInService.getLoggedInUser();
         return testRequestQueryService.findByTester(tester);
 
